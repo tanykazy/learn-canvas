@@ -34,13 +34,41 @@ myPics.addEventListener('mousedown', e => {
 });
 
 myPics.addEventListener('mousemove', e => {
+
   if (isDrawing === true) {
     drawLine(context, x, y, e.offsetX, e.offsetY);
     x = e.offsetX;
     y = e.offsetY;
   }    
 
+  // 座標と選択された dot を表示する
   mouseXY.innerText = `x座標: ${e.offsetX}, Y座標:${e.offsetY} 選択された dot -> ${Array.from(selectedDots)}`
+
+  // もし 3 点が選択されたら三角形を描写する
+  if(selectedDots.size == 3){
+
+    let dots = Array.from(selectedDots.values());
+    // => ["dot5", "dot3", "dot9"]
+
+    // coordinates[dots[0]].x, coordinates[dots[0]].y // 1点目
+    // coordinates[dots[1]].x, coordinates[dots[1]].y // 2点目
+    // coordinates[dots[2]].x, coordinates[dots[2]].y // 3点目
+
+
+    console.log("3点が選ばれました")
+    context.beginPath();
+		context.moveTo(coordinates[dots[0]].x, coordinates[dots[0]].y); //最初の点の場所
+		context.lineTo(coordinates[dots[1]].x, coordinates[dots[1]].y); //2番目の点の場所
+		context.lineTo(coordinates[dots[2]].x, coordinates[dots[2]].y); //3番目の点の場所
+		context.closePath();	//三角形の最後の線 closeさせる
+
+		context.strokeStyle = "rgb(0,0,0)"; //枠線の色
+		context.stroke();
+
+		context.fillStyle="rgba(0,0,255,0.1)";//塗りつぶしの色
+		context.fill();    
+
+  }
 
   // dot 1
   if((e.offsetX > coordinates.dot1.x - 15 && e.offsetX < coordinates.dot1.x + 15) 
@@ -51,7 +79,7 @@ myPics.addEventListener('mousemove', e => {
     context.fill();
     context.stroke();
     setTimeout(()=>{context.clearRect(0, 0, 200, 200)},500);
-    myPics.addEventListener('click',()=>{selectedDots.add("1")});
+    myPics.addEventListener('click',()=>{selectedDots.add("dot1")});
     console.log(selectedDots);
   }
 
@@ -64,7 +92,7 @@ myPics.addEventListener('mousemove', e => {
     context.fill();
     context.stroke();
     setTimeout(()=>context.clearRect(0, 0, 200, 200),500);
-    myPics.addEventListener('click',()=>{selectedDots.add("2")});
+    myPics.addEventListener('click',()=>{selectedDots.add("dot2")});
     console.log(selectedDots);
   }
 
@@ -78,7 +106,7 @@ myPics.addEventListener('mousemove', e => {
     context.stroke();
     console.log("dot3を点滅");
     setTimeout(()=>context.clearRect(0, 0, 200, 200),500);
-    myPics.addEventListener('click',()=>{selectedDots.add("3")});
+    myPics.addEventListener('click',()=>{selectedDots.add("dot3")});
     console.log(selectedDots);
   }
 
@@ -92,7 +120,7 @@ myPics.addEventListener('mousemove', e => {
     context.stroke();
     console.log("dot4を点滅");
     setTimeout(()=>context.clearRect(0, 0, 200, 200),500);
-    myPics.addEventListener('click',()=>{selectedDots.add("4")});
+    myPics.addEventListener('click',()=>{selectedDots.add("dot4")});
     console.log(selectedDots);
   }  
 
@@ -106,7 +134,7 @@ myPics.addEventListener('mousemove', e => {
     context.stroke();
     console.log("dot5を点滅");
     setTimeout(()=>context.clearRect(0, 0, 200, 200),500);
-    myPics.addEventListener('click',()=>{selectedDots.add("5")});
+    myPics.addEventListener('click',()=>{selectedDots.add("dot5")});
     console.log(selectedDots);
   }
 
@@ -120,7 +148,7 @@ myPics.addEventListener('mousemove', e => {
     context.stroke();
     console.log("dot6を点滅");
     setTimeout(()=>context.clearRect(0, 0, 200, 200),500);
-    myPics.addEventListener('click',()=>{selectedDots.add("6")});
+    myPics.addEventListener('click',()=>{selectedDots.add("dot6")});
     console.log(selectedDots);
   }
   
@@ -134,7 +162,7 @@ myPics.addEventListener('mousemove', e => {
     context.stroke();
     console.log("dot7を点滅");
     setTimeout(()=>context.clearRect(0, 0, 200, 200),500);
-    myPics.addEventListener('click',()=>{selectedDots.add("7")});
+    myPics.addEventListener('click',()=>{selectedDots.add("dot7")});
     console.log(selectedDots);
   }  
 
@@ -148,7 +176,7 @@ myPics.addEventListener('mousemove', e => {
     context.stroke();
     console.log("dot8を点滅");
     setTimeout(()=>context.clearRect(0, 0, 200, 200),500);
-    myPics.addEventListener('click',()=>{selectedDots.add("8")});
+    myPics.addEventListener('click',()=>{selectedDots.add("dot8")});
     console.log(selectedDots);
   }
 
@@ -162,7 +190,7 @@ myPics.addEventListener('mousemove', e => {
     context.stroke();
     console.log("dot9を点滅");
     setTimeout(()=>context.clearRect(0, 0, 200, 200),500);
-    myPics.addEventListener('click',()=>{selectedDots.add("9")});
+    myPics.addEventListener('click',()=>{selectedDots.add("dot9")});
     console.log(selectedDots);
   }
 
@@ -176,7 +204,7 @@ myPics.addEventListener('mousemove', e => {
     context.stroke();
     console.log("dot10を点滅");
     setTimeout(()=>context.clearRect(0, 0, 200, 200),500);
-    myPics.addEventListener('click',()=>{selectedDots.add("10")});
+    myPics.addEventListener('click',()=>{selectedDots.add("dot10")});
     console.log(selectedDots);
   }
 
@@ -190,7 +218,7 @@ myPics.addEventListener('mousemove', e => {
     context.stroke();
     console.log("dot11を点滅");
     setTimeout(()=>context.clearRect(0, 0, 200, 200),500);
-    myPics.addEventListener('click',()=>{selectedDots.add("11")});
+    myPics.addEventListener('click',()=>{selectedDots.add("dot11")});
     console.log(selectedDots);
   }
 
@@ -204,7 +232,7 @@ myPics.addEventListener('mousemove', e => {
     context.stroke();
     console.log("dot12を点滅");
     setTimeout(()=>context.clearRect(0, 0, 200, 200),500);
-    myPics.addEventListener('click',()=>{selectedDots.add("12")});
+    myPics.addEventListener('click',()=>{selectedDots.add("dot12")});
     console.log(selectedDots);
   }
 
