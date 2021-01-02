@@ -1,0 +1,35 @@
+canvas {
+  z-index: 2;
+}
+
+.circle{
+  z-index: 1;
+
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+
+  font-size: 50px;
+  width: 200px;
+  height: 200px;
+  color: rgba(0, 0, 0, 0.87);
+  cursor: move;
+
+  border-radius: 50%;
+  text-align: center;
+  background: #fff;
+  margin: 1%;
+  position: relative;
+  z-index: 1;
+  box-sizing: border-box;
+  padding: 10px;
+  transition: box-shadow 200ms cubic-bezier(0, 0, 0.2, 1);
+
+  background-size: 100%;
+  background-position:center center;
+  background-image: url("./circle.png");
+
+  margin: 5px;
+  margin-top: 30px
+
+}
