@@ -24,6 +24,8 @@ const coordinates = {
 
 // 選択された dots
 const selectedDots = new Set();
+const selectedDotsfmt = [];
+
 
 myPics.addEventListener('mousedown', e => {
   x = e.offsetX;
@@ -36,9 +38,9 @@ myPics.addEventListener('mousemove', e => {
     drawLine(context, x, y, e.offsetX, e.offsetY);
     x = e.offsetX;
     y = e.offsetY;
-  }
+  }    
 
-  mouseXY.innerText = `x座標: ${e.offsetX}, Y座標:${e.offsetY}`
+  mouseXY.innerText = `x座標: ${e.offsetX}, Y座標:${e.offsetY} 選択された dot -> ${Array.from(selectedDots)}`
 
   // dot 1
   if((e.offsetX > coordinates.dot1.x - 15 && e.offsetX < coordinates.dot1.x + 15) 
