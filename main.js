@@ -44,132 +44,20 @@ for(let key in coordinates){
 // クリック時の座標に応じて dot を selectedDots に追加する
 myPics.addEventListener('mousedown',(e)=>{
 
-  // dot 1
-  if((e.offsetX > coordinates.dot1.x - 15 && e.offsetX < coordinates.dot1.x + 15) 
-      && (e.offsetY > coordinates.dot1.y - 15 && e.offsetY < coordinates.dot1.y + 15)){
-    context.beginPath();
-    context.arc(coordinates.dot1.x, coordinates.dot1.y, 7, 0 * Math.PI / 180, 360 * Math.PI / 180, false );
-    context.fillStyle = "rgba(255,200,0,0.8)";
-    context.fill();
-    context.stroke();
-
-    selectedDots.add("dot1");
-  }
-  // dot 2
-  else if((e.offsetX > coordinates.dot2.x - 15 && e.offsetX < coordinates.dot2.x + 15) 
-  && (e.offsetY > coordinates.dot2.y - 15 && e.offsetY < coordinates.dot2.y + 15)){
-    context.beginPath();
-    context.arc(coordinates.dot2.x, coordinates.dot2.y, 7, 0 * Math.PI / 180, 360 * Math.PI / 180, false );
-    context.fillStyle = "rgba(255,200,0,0.8)";
-    context.fill();
-    context.stroke();
-    selectedDots.add("dot2");
-  }
-  // dot 3
-  else if((e.offsetX > coordinates.dot3.x - 15 && e.offsetX < coordinates.dot3.x + 15) 
-      && (e.offsetY > coordinates.dot3.y - 15 && e.offsetY < coordinates.dot3.y + 15)){
-    context.beginPath();
-    context.arc(coordinates.dot3.x, coordinates.dot3.y, 7, 0 * Math.PI / 180, 360 * Math.PI / 180, false );
-    context.fillStyle = "rgba(255,200,0,0.8)";
-    context.fill();
-    context.stroke();
-    selectedDots.add("dot3");
-  }
-  // dot 4
-  else if((e.offsetX > coordinates.dot4.x - 15 && e.offsetX < coordinates.dot4.x + 15) 
-  && (e.offsetY > coordinates.dot4.y - 15 && e.offsetY < coordinates.dot4.y + 15)){
-    context.beginPath();
-    context.arc(coordinates.dot4.x, coordinates.dot4.y, 7, 0 * Math.PI / 180, 360 * Math.PI / 180, false );
-    context.fillStyle = "rgba(255,200,0,0.8)";
-    context.fill();
-    context.stroke();
-    selectedDots.add("dot4");
-  }
-  // dot 5
-  else if((e.offsetX > coordinates.dot5.x - 15 && e.offsetX < coordinates.dot5.x + 15) 
-  && (e.offsetY > coordinates.dot5.y - 15 && e.offsetY < coordinates.dot5.y + 15)){
-    context.beginPath();
-    context.arc(coordinates.dot5.x, coordinates.dot5.y, 7, 0 * Math.PI / 180, 360 * Math.PI / 180, false );
-    context.fillStyle = "rgba(255,200,0,0.8)";
-    context.fill();
-    context.stroke();
-    selectedDots.add("dot5");
-  }
-  // dot 6
-  else if((e.offsetX > coordinates.dot6.x - 15 && e.offsetX < coordinates.dot6.x + 15) 
-      && (e.offsetY > coordinates.dot6.y - 15 && e.offsetY < coordinates.dot6.y + 15)){
-    context.beginPath();
-    context.arc(coordinates.dot6.x, coordinates.dot6.y, 7, 0 * Math.PI / 180, 360 * Math.PI / 180, false );
-    context.fillStyle = "rgba(255,200,0,0.8)";
-    context.fill();
-    context.stroke();
-    selectedDots.add("dot6");
-  }
-  // dot 7
-  else if((e.offsetX > coordinates.dot7.x - 15 && e.offsetX < coordinates.dot7.x + 15) 
-  && (e.offsetY > coordinates.dot7.y - 15 && e.offsetY < coordinates.dot7.y + 15)){
-    context.beginPath();
-    context.arc(coordinates.dot7.x, coordinates.dot7.y, 7, 0 * Math.PI / 180, 360 * Math.PI / 180, false );
-    context.fillStyle = "rgba(255,200,0,0.8)";
-    context.fill();
-    context.stroke();
-    selectedDots.add("dot7");
-  }
-  // dot 8
-  else if((e.offsetX > coordinates.dot8.x - 15 && e.offsetX < coordinates.dot8.x + 15) 
-  && (e.offsetY > coordinates.dot8.y - 15 && e.offsetY < coordinates.dot8.y + 15)){
-    context.beginPath();
-    context.arc(coordinates.dot8.x, coordinates.dot8.y, 7, 0 * Math.PI / 180, 360 * Math.PI / 180, false );
-    context.fillStyle = "rgba(255,200,0,0.8)";
-    context.fill();
-    context.stroke();
-    selectedDots.add("dot8");
-  }
-  // dot 9
-  else if((e.offsetX > coordinates.dot9.x - 15 && e.offsetX < coordinates.dot9.x + 15) 
-      && (e.offsetY > coordinates.dot9.y - 15 && e.offsetY < coordinates.dot9.y + 15)){
-    context.beginPath();
-    context.arc(coordinates.dot9.x, coordinates.dot9.y, 7, 0 * Math.PI / 180, 360 * Math.PI / 180, false );
-    context.fillStyle = "rgba(255,200,0,0.8)";
-    context.fill();
-    context.stroke();
-    selectedDots.add("dot9");
-  }
-  // dot 10
-  else if((e.offsetX > coordinates.dot10.x - 15 && e.offsetX < coordinates.dot10.x + 15) 
-  && (e.offsetY > coordinates.dot10.y - 15 && e.offsetY < coordinates.dot10.y + 15)){
-    context.beginPath();
-    context.arc(coordinates.dot10.x, coordinates.dot10.y, 7, 0 * Math.PI / 180, 360 * Math.PI / 180, false );
-    context.fillStyle = "rgba(255,200,0,0.8)";
-    context.fill();
-    context.stroke();
-    selectedDots.add("dot10");
-  }
-  // dot 11
-  else if((e.offsetX > coordinates.dot11.x - 15 && e.offsetX < coordinates.dot11.x + 15) 
-  && (e.offsetY > coordinates.dot11.y - 15 && e.offsetY < coordinates.dot11.y + 15)){
-    context.beginPath();
-    context.arc(coordinates.dot11.x, coordinates.dot11.y, 7, 0 * Math.PI / 180, 360 * Math.PI / 180, false );
-    context.fillStyle = "rgba(255,200,0,0.8)";
-    context.fill();
-    context.stroke();
-    selectedDots.add("dot11");
-  }
-  // dot 12
-  else if((e.offsetX > coordinates.dot12.x - 15 && e.offsetX < coordinates.dot12.x + 15) 
-    && (e.offsetY > coordinates.dot12.y - 15 && e.offsetY < coordinates.dot12.y + 15)){
+  for(let key in coordinates){
+    if((e.offsetX > coordinates[key].x - 15 && e.offsetX < coordinates[key].x + 15) 
+        && (e.offsetY > coordinates[key].y - 15 && e.offsetY < coordinates[key].y + 15)){
       context.beginPath();
-      context.arc(coordinates.dot12.x, coordinates.dot12.y, 7, 0 * Math.PI / 180, 360 * Math.PI / 180, false );
+      context.arc(coordinates[key].x, coordinates[key].y, 7, 0 * Math.PI / 180, 360 * Math.PI / 180, false );
       context.fillStyle = "rgba(255,200,0,0.8)";
       context.fill();
-      context.stroke();  
-      selectedDots.add("dot12");
-  } 
-
+      context.stroke();
+      selectedDots.add(key);
+    }
+  }
 });
 
 setInterval(() => {
-
   // もし 3 点が選択されたら三角形を描写する
   if(selectedDots.size == 3){
     let dots = Array.from(selectedDots.values());
@@ -183,8 +71,6 @@ setInterval(() => {
     context.fillStyle="rgba(0,0,255,0.1)";//塗りつぶしの色
     context.fill();
   }
-
-  
 }, 500);
 
 myPics.addEventListener('mousemove', e => {
@@ -204,66 +90,6 @@ myPics.addEventListener('mousemove', e => {
     context.stroke();
     context.fillStyle="rgba(0,0,255,0.1)";//塗りつぶしの色
     context.fill();
-  }
-
-  // dot 1
-  if((e.offsetX > coordinates.dot1.x - 15 && e.offsetX < coordinates.dot1.x + 15) 
-      && (e.offsetY > coordinates.dot1.y - 15 && e.offsetY < coordinates.dot1.y + 15)){
-  }
-
-  // dot 2
-  if((e.offsetX > coordinates.dot2.x - 15 && e.offsetX < coordinates.dot2.x + 15) 
-      && (e.offsetY > coordinates.dot2.y - 15 && e.offsetY < coordinates.dot2.y + 15)){
-  }
-
-  // dot 3
-  if((e.offsetX > coordinates.dot3.x - 15 && e.offsetX < coordinates.dot3.x + 15) 
-      && (e.offsetY > coordinates.dot3.y - 15 && e.offsetY < coordinates.dot3.y + 15)){
-  }
-
-  // dot 4
-  if((e.offsetX > coordinates.dot4.x - 15 && e.offsetX < coordinates.dot4.x + 15) 
-      && (e.offsetY > coordinates.dot4.y - 15 && e.offsetY < coordinates.dot4.y + 15)){
-  }  
-
-  // dot 5
-  if((e.offsetX > coordinates.dot5.x - 15 && e.offsetX < coordinates.dot5.x + 15) 
-      && (e.offsetY > coordinates.dot5.y - 15 && e.offsetY < coordinates.dot5.y + 15)){
-  }
-
-  // dot 6
-  if((e.offsetX > coordinates.dot6.x - 15 && e.offsetX < coordinates.dot6.x + 15) 
-      && (e.offsetY > coordinates.dot6.y - 15 && e.offsetY < coordinates.dot6.y + 15)){
-  }
-  
-  // dot 7
-  if((e.offsetX > coordinates.dot7.x - 15 && e.offsetX < coordinates.dot7.x + 15) 
-      && (e.offsetY > coordinates.dot7.y - 15 && e.offsetY < coordinates.dot7.y + 15)){
-  }  
-
-  // dot 8
-  if((e.offsetX > coordinates.dot8.x - 15 && e.offsetX < coordinates.dot8.x + 15) 
-      && (e.offsetY > coordinates.dot8.y - 15 && e.offsetY < coordinates.dot8.y + 15)){
-  }
-
-  // dot 9
-  if((e.offsetX > coordinates.dot9.x - 15 && e.offsetX < coordinates.dot9.x + 15) 
-      && (e.offsetY > coordinates.dot9.y - 15 && e.offsetY < coordinates.dot9.y + 15)){
-  }
-
-  // dot 10
-  if((e.offsetX > coordinates.dot10.x - 15 && e.offsetX < coordinates.dot10.x + 15) 
-      && (e.offsetY > coordinates.dot10.y - 15 && e.offsetY < coordinates.dot10.y + 15)){
-  }
-
-  // dot 11
-  if((e.offsetX > coordinates.dot11.x - 15 && e.offsetX < coordinates.dot11.x + 15) 
-      && (e.offsetY > coordinates.dot11.y - 15 && e.offsetY < coordinates.dot11.y + 15)){
-  }
-
-  // dot 12
-  if((e.offsetX > coordinates.dot12.x - 15 && e.offsetX < coordinates.dot12.x + 15) 
-      && (e.offsetY > coordinates.dot12.y - 15 && e.offsetY < coordinates.dot12.y + 15)){
   }
 
 });
