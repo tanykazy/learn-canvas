@@ -24,13 +24,68 @@ const coordinates = {
 
 // 選択された dots
 const selectedDots = new Set();
-const selectedDotsfmt = [];
 
-
-myPics.addEventListener('mousedown', e => {
-  x = e.offsetX;
-  y = e.offsetY;
-  isDrawing = true;
+// クリック時の座標に応じて dot を selectedDots に追加する
+myPics.addEventListener('mousedown',(e)=>{
+  // dot 1
+  if((e.offsetX > coordinates.dot1.x - 15 && e.offsetX < coordinates.dot1.x + 15) 
+      && (e.offsetY > coordinates.dot1.y - 15 && e.offsetY < coordinates.dot1.y + 15)){
+    selectedDots.add("dot1");
+  }
+  else if((e.offsetX > coordinates.dot2.x - 15 && e.offsetX < coordinates.dot2.x + 15) 
+  && (e.offsetY > coordinates.dot2.y - 15 && e.offsetY < coordinates.dot2.y + 15)){
+    selectedDots.add("dot2");
+  }
+  // dot 3
+  else if((e.offsetX > coordinates.dot3.x - 15 && e.offsetX < coordinates.dot3.x + 15) 
+      && (e.offsetY > coordinates.dot3.y - 15 && e.offsetY < coordinates.dot3.y + 15)){
+        selectedDots.add("dot3");
+  }
+  // dot 4
+  else if((e.offsetX > coordinates.dot4.x - 15 && e.offsetX < coordinates.dot4.x + 15) 
+  && (e.offsetY > coordinates.dot4.y - 15 && e.offsetY < coordinates.dot4.y + 15)){
+    selectedDots.add("dot4");
+  }
+  // dot 5
+  else if((e.offsetX > coordinates.dot5.x - 15 && e.offsetX < coordinates.dot5.x + 15) 
+  && (e.offsetY > coordinates.dot5.y - 15 && e.offsetY < coordinates.dot5.y + 15)){
+    selectedDots.add("dot5");
+  }
+  // dot 6
+  else if((e.offsetX > coordinates.dot6.x - 15 && e.offsetX < coordinates.dot6.x + 15) 
+      && (e.offsetY > coordinates.dot6.y - 15 && e.offsetY < coordinates.dot6.y + 15)){
+    selectedDots.add("dot6");
+  }
+  // dot 7
+  else if((e.offsetX > coordinates.dot7.x - 15 && e.offsetX < coordinates.dot7.x + 15) 
+  && (e.offsetY > coordinates.dot7.y - 15 && e.offsetY < coordinates.dot7.y + 15)){
+    selectedDots.add("dot7");
+  }
+  // dot 8
+  else if((e.offsetX > coordinates.dot8.x - 15 && e.offsetX < coordinates.dot8.x + 15) 
+  && (e.offsetY > coordinates.dot8.y - 15 && e.offsetY < coordinates.dot8.y + 15)){
+    selectedDots.add("dot8");
+  }
+  // dot 9
+  else if((e.offsetX > coordinates.dot9.x - 15 && e.offsetX < coordinates.dot9.x + 15) 
+      && (e.offsetY > coordinates.dot9.y - 15 && e.offsetY < coordinates.dot9.y + 15)){
+    selectedDots.add("dot9");
+  }
+  // dot 10
+  else if((e.offsetX > coordinates.dot10.x - 15 && e.offsetX < coordinates.dot10.x + 15) 
+  && (e.offsetY > coordinates.dot10.y - 15 && e.offsetY < coordinates.dot10.y + 15)){
+    selectedDots.add("dot10");
+  }
+  // dot 11
+  else if((e.offsetX > coordinates.dot11.x - 15 && e.offsetX < coordinates.dot11.x + 15) 
+  && (e.offsetY > coordinates.dot11.y - 15 && e.offsetY < coordinates.dot11.y + 15)){
+    selectedDots.add("dot11");
+  }
+  // dot 12
+  else if((e.offsetX > coordinates.dot12.x - 15 && e.offsetX < coordinates.dot12.x + 15) 
+    && (e.offsetY > coordinates.dot12.y - 15 && e.offsetY < coordinates.dot12.y + 15)){
+      selectedDots.add("dot12");
+  }
 });
 
 myPics.addEventListener('mousemove', e => {
@@ -41,85 +96,8 @@ myPics.addEventListener('mousemove', e => {
     y = e.offsetY;
   }
  
-
   // 座標と選択された dot を表示する
   mouseXY.innerText = `x座標: ${e.offsetX}, Y座標:${e.offsetY} 選択された dot -> ${Array.from(selectedDots)}`
-
-  // クリック時の座標に応じて dot を selectedDots に追加する
-  myPics.addEventListener('click',()=>{
-
-    // dot 1
-    if((e.offsetX > coordinates.dot1.x - 15 && e.offsetX < coordinates.dot1.x + 15) 
-        && (e.offsetY > coordinates.dot1.y - 15 && e.offsetY < coordinates.dot1.y + 15)){
-      selectedDots.add("dot1");
-    }
-
-    if((e.offsetX > coordinates.dot2.x - 15 && e.offsetX < coordinates.dot2.x + 15) 
-    && (e.offsetY > coordinates.dot2.y - 15 && e.offsetY < coordinates.dot2.y + 15)){
-      selectedDots.add("dot2");
-    }
-
-    // dot 3
-    if((e.offsetX > coordinates.dot3.x - 15 && e.offsetX < coordinates.dot3.x + 15) 
-        && (e.offsetY > coordinates.dot3.y - 15 && e.offsetY < coordinates.dot3.y + 15)){
-          selectedDots.add("dot3");
-    }
-
-    // dot 4
-    if((e.offsetX > coordinates.dot4.x - 15 && e.offsetX < coordinates.dot4.x + 15) 
-    && (e.offsetY > coordinates.dot4.y - 15 && e.offsetY < coordinates.dot4.y + 15)){
-      selectedDots.add("dot4");
-    }
-
-    // dot 5
-    if((e.offsetX > coordinates.dot5.x - 15 && e.offsetX < coordinates.dot5.x + 15) 
-    && (e.offsetY > coordinates.dot5.y - 15 && e.offsetY < coordinates.dot5.y + 15)){
-      selectedDots.add("dot5");
-    }
-
-    // dot 6
-    if((e.offsetX > coordinates.dot6.x - 15 && e.offsetX < coordinates.dot6.x + 15) 
-        && (e.offsetY > coordinates.dot6.y - 15 && e.offsetY < coordinates.dot6.y + 15)){
-      selectedDots.add("dot6");
-    }
-
-    // dot 7
-    if((e.offsetX > coordinates.dot7.x - 15 && e.offsetX < coordinates.dot7.x + 15) 
-    && (e.offsetY > coordinates.dot7.y - 15 && e.offsetY < coordinates.dot7.y + 15)){
-      selectedDots.add("dot7");
-    }
-
-    // dot 8
-    if((e.offsetX > coordinates.dot8.x - 15 && e.offsetX < coordinates.dot8.x + 15) 
-    && (e.offsetY > coordinates.dot8.y - 15 && e.offsetY < coordinates.dot8.y + 15)){
-      selectedDots.add("dot8");
-    }
-
-    // dot 9
-    if((e.offsetX > coordinates.dot9.x - 15 && e.offsetX < coordinates.dot9.x + 15) 
-        && (e.offsetY > coordinates.dot9.y - 15 && e.offsetY < coordinates.dot9.y + 15)){
-      selectedDots.add("dot9");
-    }
-
-    // dot 10
-    if((e.offsetX > coordinates.dot10.x - 15 && e.offsetX < coordinates.dot10.x + 15) 
-    && (e.offsetY > coordinates.dot10.y - 15 && e.offsetY < coordinates.dot10.y + 15)){
-      selectedDots.add("dot10");
-    }
-
-    // dot 11
-    if((e.offsetX > coordinates.dot11.x - 15 && e.offsetX < coordinates.dot11.x + 15) 
-    && (e.offsetY > coordinates.dot11.y - 15 && e.offsetY < coordinates.dot11.y + 15)){
-      selectedDots.add("dot11");
-    }
-
-    // dot 12
-    if((e.offsetX > coordinates.dot12.x - 15 && e.offsetX < coordinates.dot12.x + 15) 
-      && (e.offsetY > coordinates.dot12.y - 15 && e.offsetY < coordinates.dot12.y + 15)){
-        selectedDots.add("dot12");
-    }
-  });
-
 
   // もし 3 点が選択されたら三角形を描写する
   if(selectedDots.size == 3){
@@ -291,45 +269,3 @@ myPics.addEventListener('mousemove', e => {
   }
 
 });
-
-window.addEventListener('mouseup', e => {
-  if (isDrawing === true) {
-    drawLine(context, x, y, e.offsetX, e.offsetY);
-    x = 0;
-    y = 0;
-    isDrawing = false;
-  }
-});
-
-function drawLine(context, x1, y1, x2, y2) {
-  context.beginPath();
-  context.strokeStyle = 'black';
-  context.lineWidth = 1;
-  context.moveTo(x1, y1);
-  context.lineTo(x2, y2);
-  context.stroke();
-  context.closePath();
-}
-
-// 円の中心座標: (100,100)
-// 半径: 50
-// 開始角度: 0度 (0 * Math.PI / 180)
-// 終了角度: 360度 (360 * Math.PI / 180)
-// 方向: true=反時計回りの円、false=時計回りの円
-//
-
-/*
-dot1:	[100, 0]
-dot2:	[150,13.4]
-dot3:	[186.6, 50]
-dot4:	[200, 100]
-dot5:	[186.6, 150]
-dot6:	[150, 186.6]
-dot7:	[100, 200]
-dot8:	[50, 186.6]
-dot9:	[13.4, 150]
-dot10:[0, 100]
-dot11:[13.4, 50]
-dot12:[50, 13.4]
-*/
-
