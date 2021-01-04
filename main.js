@@ -1,7 +1,4 @@
-let isDrawing = false;
-let x = 0;
-let y = 0;
-
+// canvas の設定
 const myPics = document.getElementById('myPics');
 const context = myPics.getContext('2d');
 const mouseXY = document.getElementById('mouseXY');
@@ -41,9 +38,10 @@ for(let key in coordinates){
   context.stroke();
 }
 
-// クリック時の座標に応じて dot を selectedDots に追加する
+// 12点周辺でのクリック時の処理
 myPics.addEventListener('mousedown',(e)=>{
 
+  // クリック時の座標に応じてdotに色をつけて、selectedDots に追加する
   for(let key in coordinates){
     if((e.offsetX > coordinates[key].x - 15 && e.offsetX < coordinates[key].x + 15) 
         && (e.offsetY > coordinates[key].y - 15 && e.offsetY < coordinates[key].y + 15)){
@@ -57,9 +55,13 @@ myPics.addEventListener('mousedown',(e)=>{
   }
 });
 
+// 0.5秒ごとにdotの選択状況を確認する
 setInterval(() => {
 
+  // 4点目が選択されたときの処理
   if(selectedDots.size > 3){
+
+    // canvas を白紙にする
     context.clearRect(0, 0, 200, 200);
     selectedDots.clear();
 
@@ -78,11 +80,9 @@ setInterval(() => {
       context.fill();
       context.stroke();
     }
-
-
   }
 
-  // もし 3 点が選択されたら三角形を描写する
+  // 2点が選択されたら線を引く
   if(selectedDots.size == 2){
     let dots = Array.from(selectedDots.values());
     context.beginPath();
@@ -90,7 +90,10 @@ setInterval(() => {
     context.lineTo(coordinates[dots[1]].x, coordinates[dots[1]].y); //2番目の点の場所
     context.closePath();	//三角形の最後の線 closeさせる
     context.stroke();
-  }else if(selectedDots.size == 3){
+  }
+
+  // 3点が選択されたら三角形を描写する
+  if(selectedDots.size == 3){
     let dots = Array.from(selectedDots.values());
     context.beginPath();
     context.moveTo(coordinates[dots[0]].x, coordinates[dots[0]].y); //最初の点の場所
@@ -104,23 +107,10 @@ setInterval(() => {
   }
 }, 500);
 
-myPics.addEventListener('mousemove', e => {
- 
+// マウスを動かしたときの処理
+/*
+myPics.addEventListener('mousemove', e => { 
   // 座標と選択された dot を表示する
   mouseXY.innerText = `x座標: ${e.offsetX}, Y座標:${e.offsetY} 選択された dot -> ${Array.from(selectedDots)}`
-
-  // もし 3 点が選択されたら三角形を描写する
-  if(selectedDots.size == 3){
-    let dots = Array.from(selectedDots.values());
-    context.beginPath();
-    context.moveTo(coordinates[dots[0]].x, coordinates[dots[0]].y); //最初の点の場所
-    context.lineTo(coordinates[dots[1]].x, coordinates[dots[1]].y); //2番目の点の場所
-    context.lineTo(coordinates[dots[2]].x, coordinates[dots[2]].y); //3番目の点の場所
-    context.closePath();	//三角形の最後の線 closeさせる
-    context.strokeStyle = "rgb(0,0,0)"; //枠線の色
-    context.stroke();
-    context.fillStyle="rgba(0,0,255,0.1)";//塗りつぶしの色
-    context.fill();
-  }
-
-});
+})
+*/
