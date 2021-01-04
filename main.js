@@ -8,18 +8,18 @@ const mouseXY = document.getElementById('mouseXY');
 
 // 点1~12 の座標
 const coordinates = {
-  dot1:	{x: 100.0, y: 2},
-  dot2:	{x: 150.0, y: 13.4},
-  dot3:	{x: 186.6, y: 50},
-  dot4:	{x: 198.0, y: 100},
-  dot5:	{x: 186.6, y: 150},
-  dot6:	{x: 150.0, y: 186.6},
-  dot7:	{x: 100.0, y: 198},
-  dot8:	{x:  50.0, y: 186.6},
-  dot9:	{x:  13.4, y: 150},
-  dot10:{x:   2.0, y: 100},
-  dot11:{x:  13.4, y: 50},
-  dot12:{x:  50.0, y: 13.4}
+  dot1:	{x: 100.0, y: 6},
+  dot2:	{x: 149.0, y: 18},
+  dot3:	{x: 183.0, y: 51},
+  dot4:	{x: 194.0, y: 100},
+  dot5:	{x: 182.0, y: 150},
+  dot6:	{x: 148.0, y: 181},
+  dot7:	{x: 100.0, y: 194},
+  dot8:	{x:  52.0, y: 182},
+  dot9:	{x:  18.0, y: 150},
+  dot10:{x:   6.0, y: 100},
+  dot11:{x:  18.0, y: 51},
+  dot12:{x:  53.0, y: 18}
 }
 
 // 選択された dots
@@ -27,7 +27,7 @@ const selectedDots = new Set();
 
 // 円を描く
 context.beginPath();
-context.arc(100, 100, 100, 0 * Math.PI / 180, 360 * Math.PI / 180, false );
+context.arc(100, 100, 95, 0 * Math.PI / 180, 360 * Math.PI / 180, false );
 context.fillStyle = "rgba(0,0,0,0)";
 context.fill();
 context.stroke();
@@ -35,7 +35,7 @@ context.stroke();
 // 12点を描く
 for(let key in coordinates){
   context.beginPath();
-  context.arc(coordinates[key].x, coordinates[key].y, 7, 0 * Math.PI / 180, 360 * Math.PI / 180, false );
+  context.arc(coordinates[key].x, coordinates[key].y, 5, 0 * Math.PI / 180, 360 * Math.PI / 180, false );
   context.fillStyle = "rgba(0,0,0,0.7)";
   context.fill();
   context.stroke();
@@ -48,7 +48,7 @@ myPics.addEventListener('mousedown',(e)=>{
     if((e.offsetX > coordinates[key].x - 15 && e.offsetX < coordinates[key].x + 15) 
         && (e.offsetY > coordinates[key].y - 15 && e.offsetY < coordinates[key].y + 15)){
       context.beginPath();
-      context.arc(coordinates[key].x, coordinates[key].y, 7, 0 * Math.PI / 180, 360 * Math.PI / 180, false );
+      context.arc(coordinates[key].x, coordinates[key].y, 5, 0 * Math.PI / 180, 360 * Math.PI / 180, false );
       context.fillStyle = "rgba(255,200,0,0.8)";
       context.fill();
       context.stroke();
