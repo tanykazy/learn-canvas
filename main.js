@@ -8,18 +8,18 @@ const mouseXY = document.getElementById('mouseXY');
 
 // 点1~12 の座標
 const coordinates = {
-  dot1:	{x: 100.0, y: 6},
-  dot2:	{x: 149.0, y: 18},
-  dot3:	{x: 183.0, y: 51},
-  dot4:	{x: 194.0, y: 100},
-  dot5:	{x: 182.0, y: 150},
-  dot6:	{x: 148.0, y: 181},
-  dot7:	{x: 100.0, y: 194},
-  dot8:	{x:  52.0, y: 182},
-  dot9:	{x:  18.0, y: 150},
-  dot10:{x:   6.0, y: 100},
-  dot11:{x:  18.0, y: 51},
-  dot12:{x:  53.0, y: 18}
+  dot1:	{x: 100, y: 6},
+  dot2:	{x: 149, y: 18},
+  dot3:	{x: 183, y: 51},
+  dot4:	{x: 194, y: 100},
+  dot5:	{x: 182, y: 150},
+  dot6:	{x: 148, y: 181},
+  dot7:	{x: 100, y: 194},
+  dot8:	{x:  52, y: 182},
+  dot9:	{x:  18, y: 150},
+  dot10:{x:   6, y: 100},
+  dot11:{x:  18, y: 51},
+  dot12:{x:  53, y: 18}
 }
 
 // 選択された dots
