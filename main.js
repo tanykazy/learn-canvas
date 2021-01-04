@@ -58,8 +58,31 @@ myPics.addEventListener('mousedown',(e)=>{
 });
 
 setInterval(() => {
-  // もし 3 点が選択されたら三角形を描写する
 
+  if(selectedDots.size > 3){
+    context.clearRect(0, 0, 200, 200);
+    selectedDots.clear();
+
+    // 円を描く
+    context.beginPath();
+    context.arc(100, 100, 95, 0 * Math.PI / 180, 360 * Math.PI / 180, false );
+    context.fillStyle = "rgba(0,0,0,0)";
+    context.fill();
+    context.stroke();
+
+    // 12点を描く
+    for(let key in coordinates){
+      context.beginPath();
+      context.arc(coordinates[key].x, coordinates[key].y, 5, 0 * Math.PI / 180, 360 * Math.PI / 180, false );
+      context.fillStyle = "rgba(0,0,0,0.7)";
+      context.fill();
+      context.stroke();
+    }
+
+
+  }
+
+  // もし 3 点が選択されたら三角形を描写する
   if(selectedDots.size == 2){
     let dots = Array.from(selectedDots.values());
     context.beginPath();
