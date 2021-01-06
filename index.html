@@ -1,7 +1,7 @@
 <html>
 <head><title>canvas</title></head>
 <body>
-<canvas id="myPics" width="200" height="200"></canvas>
+<canvas id="canvasForTriangle" width="200" height="200"></canvas>
 
 <script type="text/javascript">
 /* 
@@ -10,9 +10,8 @@
 
 //  グローバル変数 
 // canvas の設定
-const myPics = document.getElementById('myPics');
-const context = myPics.getContext('2d');
-const mouseXY = document.getElementById('mouseXY');
+const canvasForTriangle = document.getElementById('canvasForTriangle');
+const context = canvasForTriangle.getContext('2d');
 
 /* 点1~12 の座標を求めるのに必要な情報 */
 // 大きな円の情報
@@ -105,7 +104,7 @@ function setLineColor (dot1,dot2) {
 }
 
 // 12点周辺でのクリック時の処理
-myPics.addEventListener('mousedown',(e)=>{
+canvasForTriangle.addEventListener('mousedown',(e)=>{
 
   // クリック時の座標に応じてdotに色をつけて、selectedDots に追加する
   for(let key in coordinates){
