@@ -50,21 +50,27 @@ function setLineColor (dot1,dot2) {
 
   console.log(distanceOfDots);
 
+  // 1
   if(distanceOfDots == 50){
     context.strokeStyle = "red";
   }
+  // 2
   else if(distanceOfDots == 96){
     context.strokeStyle = "blue";
   }
+  // 3
   else if(distanceOfDots == 136){
     context.strokeStyle = "yellow";
   }
+  // 4
   else if(distanceOfDots == 166){
     context.strokeStyle = "green";
   }
+  // 5
   else if(distanceOfDots == 185){
     context.strokeStyle = "orange";
   }
+  // 6
   else if(distanceOfDots == 192){
     context.strokeStyle = "pink";
   }
@@ -78,7 +84,7 @@ myPics.addEventListener('mousedown',(e)=>{
     if((e.offsetX > coordinates[key].x - 15 && e.offsetX < coordinates[key].x + 15) 
         && (e.offsetY > coordinates[key].y - 15 && e.offsetY < coordinates[key].y + 15)){
       context.beginPath();
-      context.arc(coordinates[key].x, coordinates[key].y, 4, 0 * Math.PI / 180, 360 * Math.PI / 180, false );
+      context.arc(coordinates[key].x, coordinates[key].y, 4.5, 0 * Math.PI / 180, 360 * Math.PI / 180, false );
       context.fillStyle = "rgba(255,200,0,0.8)";
       context.fill();
       context.stroke();
@@ -115,6 +121,7 @@ myPics.addEventListener('mousedown',(e)=>{
   if(selectedDots.size == 2){
     let dots = Array.from(selectedDots.values());
 
+    // 1 点目から 2点目
     context.beginPath();
     setLineColor(dots[0],dots[1]);
     console.log(dots[0],dots[1])
@@ -123,7 +130,7 @@ myPics.addEventListener('mousedown',(e)=>{
     context.stroke();
   }
 
-  // 3点が選択されたら三角形を描写する
+  // 3点が選択されたら三角形を描写する  
   if(selectedDots.size == 3){
     let dots = Array.from(selectedDots.values());
 
@@ -136,12 +143,12 @@ myPics.addEventListener('mousedown',(e)=>{
     context.stroke();
 
     // 3点目から1点目
+    context.beginPath();
     setLineColor(dots[2],dots[0]);
     console.log(dots[2],dots[0])
     context.moveTo(coordinates[dots[2]].x, coordinates[dots[2]].y);
     context.lineTo(coordinates[dots[0]].x, coordinates[dots[0]].y);
     context.stroke();
-    context.closePath();	//三角形の最後の線 closeさせる
   }
 
 });
