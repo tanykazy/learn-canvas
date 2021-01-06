@@ -37,6 +37,7 @@ const selectedDots = new Set();
 
 // 円を描く
 context.beginPath();
+context.lineWidth = 2;
 context.arc(100, 100, 92, 0 * Math.PI / 180, 360 * Math.PI / 180, false );
 context.fillStyle = "rgba(0,0,0,0)";
 context.fill();
@@ -118,13 +119,14 @@ myPics.addEventListener('mousedown',(e)=>{
     context.arc(100, 100, radiusOfPie, 0 * Math.PI / 180, 360 * Math.PI / 180, false );
     context.fillStyle = "rgba(0,0,0,0)";
     context.strokeStyle = "black"
+    context.lineWidth = 2;
     context.fill();
     context.stroke();
 
     // 12点を描く
     for(let key in coordinates){
       context.beginPath();
-      context.lineWidth = 3;
+      context.lineWidth = 2;
       context.arc(coordinates[key].x, coordinates[key].y, 4, 0 * Math.PI / 180, 360 * Math.PI / 180, false );
       context.fillStyle = "rgba(0,0,0,0.7)";
       context.fill();
