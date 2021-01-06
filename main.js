@@ -3,29 +3,41 @@ const myPics = document.getElementById('myPics');
 const context = myPics.getContext('2d');
 const mouseXY = document.getElementById('mouseXY');
 
-// 点1~12 の座標
+/* 点1~12 の座標を求めるのに必要な情報 */
+// canvas の情報
+const canvasX = 200;
+const canvasY = 200;
+
+// 大きな円の情報
+const radiusOfPie = 92;
+const centerPointX = 100;
+const centerPointY = 100;
+// 30-60-90 三角形
+const shortLine = radiusOfPie /2;
+const middleLine = shortLine * Math.sqrt(3);
+const longLine = radiusOfPie;
+// 12 点の情報
 const coordinates = {
-  dot1:	{x: 100, y:   4},
-  dot2:	{x: 148, y:  16.8615616},
-  dot3:	{x: 183.1384384, y:  52},
-  dot4:	{x: 196, y: 100},
-  dot5:	{x: 183.1384384, y: 148},
-  dot6:	{x: 148, y: 183.1384384},
-  dot7:	{x: 100, y: 196},
-  dot8:	{x:  52, y: 183.1384384},
-  dot9:	{x:  16.8615616, y: 148},
-  dot10:{x:  4, y: 100},
-  dot11:{x: 16.8615616, y:  52},
-  dot12:{x:  52, y:  16.8615616}
+  dot1:	{x: centerPointX, y: centerPointY - longLine },
+  dot2:	{x: centerPointX + shortLine, y: centerPointY - middleLine},
+  dot3:	{x: centerPointX + middleLine, y: centerPointY - shortLine},
+  dot4:	{x: centerPointX + longLine, y: centerPointY},
+  dot5:	{x: centerPointX + middleLine, y: centerPointY + shortLine},
+  dot6:	{x: centerPointX + shortLine, y: centerPointY + middleLine},
+  dot7:	{x: centerPointX, y: centerPointY + longLine},
+  dot8:	{x: centerPointX - shortLine, y: centerPointY + middleLine},
+  dot9:	{x: centerPointX - middleLine, y: centerPointY + shortLine},
+  dot10:{x: centerPointX - longLine, y: centerPointY},
+  dot11:{x: centerPointX - middleLine, y: centerPointY - shortLine},
+  dot12:{x: centerPointX - shortLine, y: centerPointY - middleLine}
 }
 
 // 選択された dots
 const selectedDots = new Set();
 
 // 円を描く
-context.strokeStyle = "black"
 context.beginPath();
-context.arc(100, 100, 96, 0 * Math.PI / 180, 360 * Math.PI / 180, false );
+context.arc(100, 100, 92, 0 * Math.PI / 180, 360 * Math.PI / 180, false );
 context.fillStyle = "rgba(0,0,0,0)";
 context.fill();
 context.stroke();
@@ -34,7 +46,7 @@ context.stroke();
 for(let key in coordinates){
   context.beginPath();
   context.strokeStyle = "black"
-  context.arc(coordinates[key].x, coordinates[key].y, 3, 0 * Math.PI / 180, 360 * Math.PI / 180, false );
+  context.arc(coordinates[key].x, coordinates[key].y, 4, 0 * Math.PI / 180, 360 * Math.PI / 180, false );
   context.fillStyle = "rgba(0,0,0,0.7)";
   context.fill();
   context.stroke();
@@ -51,27 +63,27 @@ function setLineColor (dot1,dot2) {
   console.log(distanceOfDots);
 
   // 1
-  if(distanceOfDots == 50){
+  if(distanceOfDots == 48){
     context.strokeStyle = "red";
   }
   // 2
-  else if(distanceOfDots == 96){
+  else if(distanceOfDots == 92){
     context.strokeStyle = "blue";
   }
   // 3
-  else if(distanceOfDots == 136){
+  else if(distanceOfDots == 130){
     context.strokeStyle = "yellow";
   }
   // 4
-  else if(distanceOfDots == 166){
+  else if(distanceOfDots == 159){
     context.strokeStyle = "green";
   }
   // 5
-  else if(distanceOfDots == 185){
+  else if(distanceOfDots == 178){
     context.strokeStyle = "orange";
   }
   // 6
-  else if(distanceOfDots == 192){
+  else if(distanceOfDots == 184){
     context.strokeStyle = "pink";
   }
 }
@@ -84,7 +96,7 @@ myPics.addEventListener('mousedown',(e)=>{
     if((e.offsetX > coordinates[key].x - 15 && e.offsetX < coordinates[key].x + 15) 
         && (e.offsetY > coordinates[key].y - 15 && e.offsetY < coordinates[key].y + 15)){
       context.beginPath();
-      context.arc(coordinates[key].x, coordinates[key].y, 4.5, 0 * Math.PI / 180, 360 * Math.PI / 180, false );
+      context.arc(coordinates[key].x, coordinates[key].y, 6, 0 * Math.PI / 180, 360 * Math.PI / 180, false );
       context.fillStyle = "rgba(255,200,0,0.8)";
       context.fill();
       context.stroke();
@@ -101,7 +113,7 @@ myPics.addEventListener('mousedown',(e)=>{
 
     // 円を描く
     context.beginPath();
-    context.arc(100, 100, 95, 0 * Math.PI / 180, 360 * Math.PI / 180, false );
+    context.arc(100, 100, radiusOfPie, 0 * Math.PI / 180, 360 * Math.PI / 180, false );
     context.fillStyle = "rgba(0,0,0,0)";
     context.strokeStyle = "black"
     context.fill();
@@ -150,7 +162,6 @@ myPics.addEventListener('mousedown',(e)=>{
     context.lineTo(coordinates[dots[0]].x, coordinates[dots[0]].y);
     context.stroke();
   }
-
 });
 
 // マウスを動かしたときの処理
