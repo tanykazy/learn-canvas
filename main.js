@@ -1,3 +1,9 @@
+/* 
+  円盤上に三角形を描く Canvas プログラム
+*/
+
+//  グローバル変数 
+
 // canvas の設定
 const myPics = document.getElementById('myPics');
 const context = myPics.getContext('2d');
@@ -12,10 +18,12 @@ const canvasY = 200;
 const radiusOfPie = 92;
 const centerPointX = 100;
 const centerPointY = 100;
-// 30-60-90 三角形
+
+// 30° 60° 90° の三角形の辺の長さ
 const shortLine = radiusOfPie /2;
 const middleLine = shortLine * Math.sqrt(3);
 const longLine = radiusOfPie;
+
 // 12 点の情報
 const coordinates = {
   dot1:	{x: centerPointX, y: centerPointY - longLine },
@@ -35,56 +43,62 @@ const coordinates = {
 // 選択された dots
 const selectedDots = new Set();
 
-// 円を描く
-context.beginPath();
-context.lineWidth = 2;
-context.arc(100, 100, 92, 0 * Math.PI / 180, 360 * Math.PI / 180, false );
-context.fillStyle = "rgba(0,0,0,0)";
-context.fill();
-context.stroke();
+function init(){
 
-// 12点を描く
-for(let key in coordinates){
+  // 環境を白紙にする
+  selectedDots.clear();
+  context.clearRect(0, 0, 200, 200);
+
+  // 円を描く
   context.beginPath();
-  context.strokeStyle = "black"
-  context.arc(coordinates[key].x, coordinates[key].y, 4, 0 * Math.PI / 180, 360 * Math.PI / 180, false );
-  context.fillStyle = "rgba(0,0,0,0.7)";
+  context.lineWidth = 2.5;
+  context.arc(100, 100, 92, 0 * Math.PI / 180, 360 * Math.PI / 180, false);
+  context.fillStyle = "rgba(0,0,0,0)";
   context.fill();
   context.stroke();
+
+  // 12点を描く
+  for(let key in coordinates){
+    context.beginPath();
+    context.strokeStyle = "black"
+    context.arc(coordinates[key].x, coordinates[key].y, 4, 0 * Math.PI / 180, 360 * Math.PI / 180, false);
+    context.fillStyle = "rgba(0,0,0,0.7)";
+    context.fill();
+    context.stroke();
+  }
+}
+
+function getDistanceOf2Dots(dot1, dot2){
+  let result =  Math.round(Math.sqrt(Math.pow((coordinates[dot1].x - coordinates[dot2].x),2) + Math.pow((coordinates[dot1].y - coordinates[dot2].y),2)));
+  return result
 }
 
 // 線の長さを元にラインの色を決定する
 function setLineColor (dot1,dot2) {
-  let distanceOfDots = 
-  Math.round(
-    Math.sqrt(
-      Math.pow((coordinates[dot1].x - coordinates[dot2].x),2) + 
-      Math.pow((coordinates[dot1].y - coordinates[dot2].y),2)))
+  let distanceOfDots = Math.round(Math.sqrt(Math.pow((coordinates[dot1].x - coordinates[dot2].x),2) + Math.pow((coordinates[dot1].y - coordinates[dot2].y),2)));
 
-  console.log(distanceOfDots);
-
-  // 1
-  if(distanceOfDots == 48){
+  // 距離が 1 点分の場合
+  if(distanceOfDots == getDistanceOf2Dots("dot1","dot2")){
     context.strokeStyle = "red";
   }
-  // 2
-  else if(distanceOfDots == 92){
+  // 距離が 2 点分の場合
+  else if(distanceOfDots == getDistanceOf2Dots("dot1","dot3")){
     context.strokeStyle = "blue";
   }
-  // 3
-  else if(distanceOfDots == 130){
+  // 距離が 3 点分の場合
+  else if(distanceOfDots == getDistanceOf2Dots("dot1","dot4")){
     context.strokeStyle = "yellow";
   }
-  // 4
-  else if(distanceOfDots == 159){
+  // 距離が 4 点分の場合
+  else if(distanceOfDots == getDistanceOf2Dots("dot1","dot5")){
     context.strokeStyle = "green";
   }
-  // 5
-  else if(distanceOfDots == 178){
+  // 距離が 5 点分の場合
+  else if(distanceOfDots == getDistanceOf2Dots("dot1","dot6")){
     context.strokeStyle = "orange";
   }
-  // 6
-  else if(distanceOfDots == 184){
+  // 距離が 6 点分の場合
+  else if(distanceOfDots == getDistanceOf2Dots("dot1","dot7")){
     context.strokeStyle = "pink";
   }
 }
@@ -97,7 +111,7 @@ myPics.addEventListener('mousedown',(e)=>{
     if((e.offsetX > coordinates[key].x - 15 && e.offsetX < coordinates[key].x + 15) 
         && (e.offsetY > coordinates[key].y - 15 && e.offsetY < coordinates[key].y + 15)){
       context.beginPath();
-      context.lineWidth = 2;
+      context.lineWidth = 2.5;
       context.strokeStyle = "black"
       context.arc(coordinates[key].x, coordinates[key].y, 6, 0 * Math.PI / 180, 360 * Math.PI / 180, false );
       context.fillStyle = "rgba(255,200,0,0.8)";
@@ -107,44 +121,16 @@ myPics.addEventListener('mousedown',(e)=>{
     }
   }
 
-  // 4点目が選択されたときの処理
-  if(selectedDots.size > 3){
-
-    // canvas を白紙にする
-    context.clearRect(0, 0, 200, 200);
-    selectedDots.clear();
-
-    // 円を描く
-    context.beginPath();
-    context.arc(100, 100, radiusOfPie, 0 * Math.PI / 180, 360 * Math.PI / 180, false );
-    context.fillStyle = "rgba(0,0,0,0)";
-    context.strokeStyle = "black"
-    context.lineWidth = 2;
-    context.fill();
-    context.stroke();
-
-    // 12点を描く
-    for(let key in coordinates){
-      context.beginPath();
-      context.lineWidth = 2;
-      context.arc(coordinates[key].x, coordinates[key].y, 4, 0 * Math.PI / 180, 360 * Math.PI / 180, false );
-      context.fillStyle = "rgba(0,0,0,0.7)";
-      context.fill();
-      context.stroke();
-    }
-  }
-
   // 2点が選択されたら線を引く
   if(selectedDots.size == 2){
     let dots = Array.from(selectedDots.values());
 
     // 1 点目から 2点目
     context.beginPath();
-    context.lineWidth = 2;
+    context.lineWidth = 2.5;
     setLineColor(dots[0],dots[1]);
-    console.log(dots[0],dots[1])
-    context.moveTo(coordinates[dots[0]].x, coordinates[dots[0]].y); //最初の点の場所
-    context.lineTo(coordinates[dots[1]].x, coordinates[dots[1]].y); //2番目の点の場所
+    context.moveTo(coordinates[dots[0]].x, coordinates[dots[0]].y);
+    context.lineTo(coordinates[dots[1]].x, coordinates[dots[1]].y);
     context.stroke();
   }
 
@@ -155,7 +141,6 @@ myPics.addEventListener('mousedown',(e)=>{
     // 2点目から3点目
     context.beginPath();
     setLineColor(dots[1],dots[2]);
-    console.log(dots[1],dots[2])
     context.moveTo(coordinates[dots[1]].x, coordinates[dots[1]].y);
     context.lineTo(coordinates[dots[2]].x, coordinates[dots[2]].y);
     context.stroke();
@@ -163,18 +148,17 @@ myPics.addEventListener('mousedown',(e)=>{
     // 3点目から1点目
     context.beginPath();
     setLineColor(dots[2],dots[0]);
-    console.log(dots[2],dots[0])
     context.moveTo(coordinates[dots[2]].x, coordinates[dots[2]].y);
     context.lineTo(coordinates[dots[0]].x, coordinates[dots[0]].y);
     context.stroke();
-    context.closePath();
   }
+
+  // 4点目が選択されたときの処理
+  if(selectedDots.size > 3){
+    init();
+  }
+  
 });
 
-// マウスを動かしたときの処理
-/*
-myPics.addEventListener('mousemove', e => { 
-  // 座標と選択された dot を表示する
-  mouseXY.innerText = `x座標: ${e.offsetX}, Y座標:${e.offsetY} 選択された dot -> ${Array.from(selectedDots)}`
-})
-*/
+// 初期化処理を実行する
+init();
