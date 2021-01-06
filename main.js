@@ -3,21 +3,16 @@
 */
 
 //  グローバル変数 
-
 // canvas の設定
 const myPics = document.getElementById('myPics');
 const context = myPics.getContext('2d');
 const mouseXY = document.getElementById('mouseXY');
 
 /* 点1~12 の座標を求めるのに必要な情報 */
-// canvas の情報
-const canvasX = 200;
-const canvasY = 200;
-
 // 大きな円の情報
-const radiusOfPie = 92;
-const centerPointX = 100;
-const centerPointY = 100;
+const radiusOfPie = 92; // 半径
+const centerPointX = 100; // 中心点の座標
+const centerPointY = 100; // 中心点の座標
 
 // 30° 60° 90° の三角形の辺の長さ
 const shortLine = radiusOfPie /2;
@@ -157,7 +152,6 @@ myPics.addEventListener('mousedown',(e)=>{
   if(selectedDots.size > 3){
     init();
   }
-  
 });
 
 // 初期化処理を実行する
