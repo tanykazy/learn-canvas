@@ -96,6 +96,8 @@ myPics.addEventListener('mousedown',(e)=>{
     if((e.offsetX > coordinates[key].x - 15 && e.offsetX < coordinates[key].x + 15) 
         && (e.offsetY > coordinates[key].y - 15 && e.offsetY < coordinates[key].y + 15)){
       context.beginPath();
+      context.lineWidth = 2;
+      context.strokeStyle = "black"
       context.arc(coordinates[key].x, coordinates[key].y, 6, 0 * Math.PI / 180, 360 * Math.PI / 180, false );
       context.fillStyle = "rgba(255,200,0,0.8)";
       context.fill();
@@ -122,6 +124,7 @@ myPics.addEventListener('mousedown',(e)=>{
     // 12点を描く
     for(let key in coordinates){
       context.beginPath();
+      context.lineWidth = 3;
       context.arc(coordinates[key].x, coordinates[key].y, 4, 0 * Math.PI / 180, 360 * Math.PI / 180, false );
       context.fillStyle = "rgba(0,0,0,0.7)";
       context.fill();
@@ -135,6 +138,7 @@ myPics.addEventListener('mousedown',(e)=>{
 
     // 1 点目から 2点目
     context.beginPath();
+    context.lineWidth = 2;
     setLineColor(dots[0],dots[1]);
     console.log(dots[0],dots[1])
     context.moveTo(coordinates[dots[0]].x, coordinates[dots[0]].y); //最初の点の場所
@@ -161,6 +165,7 @@ myPics.addEventListener('mousedown',(e)=>{
     context.moveTo(coordinates[dots[2]].x, coordinates[dots[2]].y);
     context.lineTo(coordinates[dots[0]].x, coordinates[dots[0]].y);
     context.stroke();
+    context.closePath();
   }
 });
 
