@@ -1,10 +1,14 @@
 /* 
-  円盤上に三角形を描く Canvas プログラム
+  Sankaku 
+   - 円盤上に三角形を描く Canvas プログラム 
+   - ライセンス: MIT
+   - 作者: t-cool
 */
 
-//  グローバル変数 
+var Sankaku = (function(environment) {
+
 // canvas の設定
-const canvasForTriangle = document.getElementById('canvasForTriangle');
+const canvasForTriangle = document.getElementById(environment.canvasId);
 const context = canvasForTriangle.getContext('2d');
 
 /* 点1~12 の座標を求めるのに必要な情報 */
@@ -155,3 +159,12 @@ canvasForTriangle.addEventListener('mousedown',(e)=>{
 
 // 初期化処理を実行する
 init();
+
+return {
+  init: init,
+}
+})({
+  // 初期化に必要な環境情報
+  // HTML 上の canvas の id
+  canvasId: "canvasForTriangle"
+})
