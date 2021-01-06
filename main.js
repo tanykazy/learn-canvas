@@ -157,14 +157,21 @@ canvasForTriangle.addEventListener('mousedown',(e)=>{
   }
 });
 
+
+function getSelectedDots(){
+  let result = Array.from(selectedDots.values());
+  return result;
+}
+
 // 初期化処理を実行する
 init();
 
 return {
-  init: init,
+  getSelectedDots: getSelectedDots  
 }
+
 })({
   // 初期化に必要な環境情報
   // HTML 上の canvas の id
-  canvasId: "canvasForTriangle"
+  canvasId: "canvasForTriangle",
 })
