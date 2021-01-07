@@ -1,6 +1,6 @@
 /*
  * sankaku JavaScript Library v0.9.0
- * https://github.com/gdg-nara/learn-canvas
+ * https://github.com/gdg-nara/sankaku
  *
  * Copyright t-cool
  * Released under the MIT license
