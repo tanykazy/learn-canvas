@@ -1,20 +1,25 @@
-# learn-canvas
+# Sankaku
 
-Canvas を用いた幾何の学習プログラム
+円盤の上で三角形を描くプログラム
 
-1. Sankaku: [https://gdg-nara.github.io/learn-canvas/](https://gdg-nara.github.io/learn-canvas/)
+## 使い方 (HTML に読み込む場合)
 
-使い方: 
-
-　① HTML ファイルで canvas の id を "sankaku" とします。
+1. HTML ファイルで canvas の id を "sankaku" とします。
 
 ```
 <canvas id="sankaku" width="200" height="200"></canvas>
 ```
 
-　② HTML ファイル内で Sankaku.js を読み込みます。
+2. HTML ファイル内で Sankaku.js を読み込みます。
  
 ```
-<script type="text/javascript" src="./Sankaku/Sankaku.js"></script>
+<script type="text/javascript" src="Sankaku.js"></script>
 ```
 
+## 使い方 (Node.js)
+
+追加予定
+
+## ライセンス
+
+MIT
