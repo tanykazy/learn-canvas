@@ -1,0 +1,25 @@
+{
+  "name": "sankaku",
+  "version": "0.9.0",
+  "description": "a package to draw a triangle on a circle of canvas",
+  "main": "sankaku.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gdg-nara/sankaku.git"
+  },
+  "keywords": [
+    "draw",
+    "triangle",
+    "circle",
+    "canvas"
+  ],
+  "author": "t-cool",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/gdg-nara/sankaku/issues"
+  },
+  "homepage": "https://github.com/gdg-nara/sankaku#readme"
+}

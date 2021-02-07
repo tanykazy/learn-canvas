@@ -1,9 +1,10 @@
-/* 
-  Sankaku 
-   - 円盤上に三角形を描く Canvas プログラム 
-   - ライセンス: MIT
-   - 作者: t-cool
-*/
+/*
+ * sankaku JavaScript Library v0.9.0
+ * https://github.com/gdg-nara/sankaku
+ *
+ * Copyright t-cool
+ * Released under the MIT license
+ */
 
 var Sankaku = (function(environment) {
 
@@ -173,5 +174,5 @@ return {
 })({
   // 初期化に必要な環境情報
   // HTML 上の canvas の id
-  canvasId: "canvasForTriangle",
+  canvasId: "sankaku",
 })
